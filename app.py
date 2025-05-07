@@ -10,6 +10,8 @@ from pythonfiles.Student_home import apply_job, fetch_job_details, get_jobs_by_a
 from pythonfiles.recruiterslogin import *
 from pythonfiles.students_login import *
 from pythonfiles.Students_register import register_student
+from pythonfiles.create_job import add_job
+from pythonfiles.create_job import delete_job_by_id
 from flask_cors import CORS
 import os
 
@@ -80,6 +82,15 @@ def api_add_job():
 @app.route('/create_job_page')
 def create_job_page():
     return render_template('create_job.html')
+
+@app.route('/api/job_details/<int:job_id>', methods=['DELETE'])
+def delete_job(job_id):
+    success = delete_job_by_id(job_id)  # Call the function to delete the job from the database
+    if success:
+        return jsonify({'message': 'Job deleted successfully'}), 200
+    else:
+        return jsonify({'message': 'Job not found or could not be deleted'}), 404
+
 
 
 # +++++++++++++++++++++++++++ END OF CREATE JOB PAGE ++++++++++++++++++++++++++
