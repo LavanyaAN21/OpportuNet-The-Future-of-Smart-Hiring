@@ -1,39 +1,52 @@
-<html lang='en'>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recruiter Home</title>
-    <link rel='stylesheet' href="{{ url_for('static', filename='css/recruiter_home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/recruiter_home.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   </head>
   <body>
+    <!-- Header Section -->
     <header>
-      <div class='header-container'>
-        <h1>Opportunet</h1>
-        <button id="logout-btn">Logout</button>
-      </div> 
-    </header>
-    <main>
-      <div class='sidebar'>
-        <h2>Jobs</h2>
-        <h2 id='reports'>Report</h2>
+      <div class="header-container">
+        <h1><i class="fas fa-briefcase"></i> Opportunet</h1>
+        <button id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
       </div>
-      <div class='content'>
-        <table id='jobsTable' border='1'>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Job Role</th>
-              <th>Company</th>
-              <th>Package</th>
-              <th>Job Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <button id='create-job-btn'>Create New Job</button>
-          </tbody>
-        </table>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Sidebar Section -->
+      <div class="sidebar">
+        <h2><i class="fas fa-clipboard-list"></i> Jobs</h2>
+        <h2 id="reports"><i class="fas fa-chart-line"></i> Report</h2>
+      </div>
+
+      <!-- Content Section -->
+      <div class="content">
+        <div class="table-container">
+          <table id="jobsTable" class="jobs-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Job Role</th>
+                <th>Company</th>
+                <th>Package</th>
+                <th>Job Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Jobs will be dynamically inserted here -->
+            </tbody>
+          </table>
+          <button id="create-job-btn" class="create-job-btn"><i class="fas fa-plus"></i> Create New Job</button>
+        </div>
       </div>
     </main>
-    <script src="{{ url_for('static',filename='js/recruiter_home.js') }}"></script> 
+
+    <!-- External JS -->
+    <script src="{{ url_for('static', filename='js/recruiter_home.js') }}"></script>
   </body>
 </html>
